@@ -1,2 +1,2 @@
-def return_one()
+def return_one():
     return 1
