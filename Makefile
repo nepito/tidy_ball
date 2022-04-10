@@ -31,7 +31,7 @@ format:
 init: install tests
 
 install:
-	pip install .
+	pip install --editable .
 
 mutants: install
 	mkdir --parents results
