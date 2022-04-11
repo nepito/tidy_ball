@@ -79,6 +79,11 @@ def test_Match():
     obtained_match = MatchTeam(**typical_match)
 
 
+def test_Tackles():
+    typical_tackles = {"total": "5", "blocks": None, "interceptions": "1"}
+    obtained_tackles = Tackles(**typical_tackles)
+
+
 def test_get_id_team_from_response():
     expected_id_team = [106, 106, 106]
     obtained_id_team = get_id_team_from_response(data["response"][0])
