@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 import pandas as pd
 from typing import Optional, List
-import json
 
 
 class Penalty(BaseModel):
@@ -64,10 +63,6 @@ class Games(BaseModel):
 class MatchTeam(BaseModel):
     match: str
     team: str
-
-
-def init_pandas():
-    return pd.DataFrame({"team": [], "match": []})
 
 
 def get_players_statistic_from_match(league_file: dict):
