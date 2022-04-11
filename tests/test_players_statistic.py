@@ -125,3 +125,14 @@ def test_get_info_passes_by_player_from_data():
     expected = pd.DataFrame(for_dataframe)
     obtained = get_info_passes_by_player_from_data(data)
     assert_frame_equal(expected, obtained)
+
+
+def test_get_info_tackles_by_player_from_data():
+    for_dataframe = {
+        "tackles_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
+        "tackles_blocks": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
+        "tackles_interceptions": [16, 32, 37, 29, 21, 24, 45, 21, 13],
+    }
+    expected = pd.DataFrame(for_dataframe)
+    obtained = get_info_tackles_by_player_from_data(data)
+    assert_frame_equal(expected, obtained)
