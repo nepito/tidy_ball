@@ -11,6 +11,7 @@ from tidyball import (
     Passes,
     Games,
     MatchTeam,
+    Tackles,
     get_id_team_from_response,
     get_id_players_from_data,
     get_info_game_by_player_from_data,
