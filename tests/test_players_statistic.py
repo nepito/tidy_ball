@@ -137,9 +137,9 @@ def test_get_info_passes_by_player_from_data():
 
 def test_get_info_tackles_by_player_from_data():
     for_dataframe = {
-        "tackles_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
-        "tackles_blocks": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
-        "tackles_interceptions": [16, 32, 37, 29, 21, 24, 45, 21, 13],
+        "tackles_total": [np.nan, 5, 4, np.nan, 3, 5, 1, 3, np.nan],
+        "tackles_blocks": [None, None, None, None, None, None, None, None, None],
+        "tackles_interceptions": [np.nan, 1, np.nan, np.nan, 1, 1, 3, np.nan, np.nan],
     }
     expected = pd.DataFrame(for_dataframe)
     obtained = get_info_tackles_by_player_from_data(data)
