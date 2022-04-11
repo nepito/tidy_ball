@@ -127,6 +127,7 @@ def test_get_info_passes_by_player_from_data():
     obtained = get_info_passes_by_player_from_data(data)
     assert_frame_equal(expected, obtained)
 
+
 @pytest.mark.skip(reason="the function get_info_tackles_by_player_from_data need others things")
 def test_get_info_tackles_by_player_from_data():
     for_dataframe = {
