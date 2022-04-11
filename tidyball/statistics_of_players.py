@@ -112,10 +112,13 @@ def get_players(data: dict) -> list:
     return players
 
 
-def get_info_tackles_by_player_from_data(data: dict):
-    for_dataframe = {
-        "tackles_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
-        "tackles_blocks": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
-        "tackles_interceptions": [16, 32, 37, 29, 21, 24, 45, 21, 13],
+def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
+    players = get_players(data)
+    for_dataframe = [Tackles(**player["statistics"][0]["tackles"]).dict() for player in players]
+    info_tackles_of_players = pd.DataFrame(for_dataframe)
+    new_names = {
+        "total": "tackles_total",
+        "blocks": "tackles_blocks",
+        "interceptions": "tackles_interceptions",
     }
-    return pd.DataFrame(for_dataframe)
+    return info_tackles_of_players.rename(columns=new_names)
