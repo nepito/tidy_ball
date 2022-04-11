@@ -25,7 +25,6 @@ coverage:
 
 format:
 	black --line-length=100 ${repo}
-	black --line-length=100 src
 	black --line-length=100 tests
 
 init: install tests
