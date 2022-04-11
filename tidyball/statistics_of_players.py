@@ -2,7 +2,6 @@ from pydantic import BaseModel
 import pandas as pd
 from typing import Optional, List
 import json
-from futbol import League, downladed_file, read_statistic_match, read_json, ID_LEAGUE_SEASON
 
 
 class Penalty(BaseModel):
