@@ -30,6 +30,12 @@ class Games(BaseModel):
     number: int
 
 
+class Tackles(BaseModel):
+    total: Optional[int]
+    blocks: Optional[int]
+    interceptions: Optional[int]
+
+
 class MatchTeam(BaseModel):
     match: str
     team: str
