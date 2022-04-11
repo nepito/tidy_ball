@@ -11,36 +11,6 @@ class Penalty(BaseModel):
     saved: Optional[int]
 
 
-class Penalties_Team:
-    def __init__(self, players: List[dict]) -> None:
-        self.penalties: List[Penalty] = [
-            Penalty(**local_player["statistics"][0]["penalty"]) for local_player in players
-        ]
-
-    def missed(self) -> int:
-        missed: int = sum(penalty.missed for penalty in self.penalties)
-        return missed
-
-    def scored(self) -> int:
-        scored: int = sum(penalty.scored for penalty in self.penalties)
-        return scored
-
-
-class Penalty_Match(BaseModel):
-    away_scored: Optional[int]
-    away_missed: Optional[int]
-    home_scored: Optional[int]
-    home_missed: Optional[int]
-    id_match: Optional[int]
-    home_total: Optional[int]
-    away_total: Optional[int]
-
-    def __init__(self, **data) -> None:
-        super().__init__(**data)
-        self.away_total = self.away_scored + self.away_missed
-        self.home_total = self.home_scored + self.home_missed
-
-
 class Goal(BaseModel):
     total: Optional[int]
     conceded: Optional[int]
