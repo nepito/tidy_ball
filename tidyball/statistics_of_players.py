@@ -113,12 +113,16 @@ def get_players(data: dict) -> list:
 
 
 def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
-    players = get_players(data)
-    for_dataframe = [Tackles(**player["statistics"][0]["tackles"]).dict() for player in players]
-    info_tackles_of_players = pd.DataFrame(for_dataframe)
     new_names = {
         "total": "tackles_total",
         "blocks": "tackles_blocks",
         "interceptions": "tackles_interceptions",
     }
+    return get_info_by_player_from_data(data, Tackles, new_names)
+
+
+def get_info_by_player_from_data(data: dict, set_of_info, new_names: dict) -> pd.DataFrame:
+    players = get_players(data)
+    for_dataframe = [set_of_info(**player["statistics"][0]["tackles"]).dict() for player in players]
+    info_tackles_of_players = pd.DataFrame(for_dataframe)
     return info_tackles_of_players.rename(columns=new_names)
