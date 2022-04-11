@@ -1,5 +1,6 @@
-from pydantic import BaseModel
+import numpy as np
 import pandas as pd
+from pydantic import BaseModel
 from typing import Optional, List
 
 
@@ -111,7 +112,7 @@ def get_players(data: dict) -> list:
     return players
 
 
-def get_info_tackles_by_player_from_data():
+def get_info_tackles_by_player_from_data(data: dict):
     for_dataframe = {
         "tackles_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
         "tackles_blocks": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
