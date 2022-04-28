@@ -1,7 +1,6 @@
-import numpy as np
 import pandas as pd
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional
 
 
 class Penalty(BaseModel):
