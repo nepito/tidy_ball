@@ -1,15 +1,13 @@
 repo = tidyball
-codecov_token = 
+codecov_token = e3bfc22d-a201-4223-89d5-c4a014810219
 
 .PHONY: check coverage format tests
 
 check:
 	black --check --line-length 100 ${repo}
 	black --check --line-length 100 tests
-	black --check --line-length 100 src
 	flake8 --max-line-length 100 ${repo}
 	flake8 --max-line-length 100 tests
-	flake8 --max-line-length 100 src
 
 clean:
 	rm --force --recursive **/__pycache__
