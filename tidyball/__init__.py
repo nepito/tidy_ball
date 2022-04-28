@@ -4,6 +4,5 @@ is chage from format json to csv.
 """
 
 __version__ = "0.1.0"
-from .dummy import *  # noqa
 from .io import *  # noqa
 from .statistics_of_players import *  # noqa
