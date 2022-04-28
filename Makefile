@@ -1,5 +1,5 @@
 repo = tidyball
-codecov_token = 
+codecov_token = e3bfc22d-a201-4223-89d5-c4a014810219
 
 .PHONY: check coverage format tests
 
