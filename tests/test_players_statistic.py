@@ -11,11 +11,13 @@ from tidyball import (
     Passes,
     Games,
     MatchTeam,
+    Tackles,
     get_id_team_from_response,
     get_id_players_from_data,
     get_info_game_by_player_from_data,
     get_info_goal_by_player_from_data,
     get_info_passes_by_player_from_data,
+    get_info_tackles_by_player_from_data,
 )
 
 league_path = "tests/data/data_statisitcs_players_718522.json"
@@ -79,6 +81,11 @@ def test_Match():
     obtained_match = MatchTeam(**typical_match)
 
 
+def test_Tackles():
+    typical_tackles = {"total": "5", "blocks": None, "interceptions": "1"}
+    obtained_tackles = Tackles(**typical_tackles)
+
+
 def test_get_id_team_from_response():
     expected_id_team = [106, 106, 106]
     obtained_id_team = get_id_team_from_response(data["response"][0])
@@ -128,12 +135,11 @@ def test_get_info_passes_by_player_from_data():
     assert_frame_equal(expected, obtained)
 
 
-@pytest.mark.skip(reason="the function get_info_tackles_by_player_from_data need others things")
 def test_get_info_tackles_by_player_from_data():
     for_dataframe = {
-        "tackles_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
-        "tackles_blocks": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
-        "tackles_interceptions": [16, 32, 37, 29, 21, 24, 45, 21, 13],
+        "tackles_total": [np.nan, 5, 4, np.nan, 3, 5, 1, 3, np.nan],
+        "tackles_blocks": [None, None, None, None, None, None, None, None, None],
+        "tackles_interceptions": [np.nan, 1, np.nan, np.nan, 1, 1, 3, np.nan, np.nan],
     }
     expected = pd.DataFrame(for_dataframe)
     obtained = get_info_tackles_by_player_from_data(data)

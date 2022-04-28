@@ -1,5 +1,6 @@
-from pydantic import BaseModel
+import numpy as np
 import pandas as pd
+from pydantic import BaseModel
 from typing import Optional, List
 
 
@@ -28,6 +29,12 @@ class Games(BaseModel):
     minutes: Optional[int]
     position: str
     number: int
+
+
+class Tackles(BaseModel):
+    total: Optional[int]
+    blocks: Optional[int]
+    interceptions: Optional[int]
 
 
 class MatchTeam(BaseModel):
@@ -74,28 +81,22 @@ def get_info_game_by_player_from_data(data: dict) -> pd.DataFrame:
 
 
 def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
-    players = get_players(data)
-    for_dataframe = [Goal(**player["statistics"][0]["goals"]).dict() for player in players]
-    info_goal_of_players = pd.DataFrame(for_dataframe)
     new_names = {
         "total": "goal_total",
         "conceded": "goal_conceded",
         "assists": "goal_assists",
         "saves": "goal_saves",
     }
-    return info_goal_of_players.rename(columns=new_names)
+    return get_info_by_player_from_data(data, "goals", new_names)
 
 
 def get_info_passes_by_player_from_data(data: dict) -> pd.DataFrame:
-    players = get_players(data)
-    for_dataframe = [Passes(**player["statistics"][0]["passes"]).dict() for player in players]
-    info_goal_of_players = pd.DataFrame(for_dataframe)
     new_names = {
         "total": "passes_total",
         "key": "passes_key",
         "accuracy": "passes_accuracy",
     }
-    return info_goal_of_players.rename(columns=new_names)
+    return get_info_by_player_from_data(data, "passes", new_names)
 
 
 def get_players(data: dict) -> list:
@@ -103,3 +104,23 @@ def get_players(data: dict) -> list:
     away_players = data["response"][1]["players"]
     players = home_players + away_players
     return players
+
+
+def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
+    new_names = {
+        "total": "tackles_total",
+        "blocks": "tackles_blocks",
+        "interceptions": "tackles_interceptions",
+    }
+    return get_info_by_player_from_data(data, "tackles", new_names)
+
+
+def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) -> pd.DataFrame:
+    players = get_players(data)
+    info = SET_OF_INFO[set_of_info]
+    for_dataframe = [info(**player["statistics"][0][set_of_info]).dict() for player in players]
+    info_tackles_of_players = pd.DataFrame(for_dataframe)
+    return info_tackles_of_players.rename(columns=new_names)
+
+
+SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal}
