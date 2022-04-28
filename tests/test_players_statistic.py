@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
-import json
 from pandas._testing import assert_frame_equal
-import pytest
 
 from tidyball import (
     read_json,
