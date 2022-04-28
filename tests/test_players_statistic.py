@@ -144,3 +144,7 @@ def test_get_info_tackles_by_player_from_data():
     expected = pd.DataFrame(for_dataframe)
     obtained = get_info_tackles_by_player_from_data(data)
     assert_frame_equal(expected, obtained)
+
+
+def test_get_info_dribles_by_player_from_data():
+    pass
