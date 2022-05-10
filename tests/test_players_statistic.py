@@ -112,8 +112,10 @@ def test_get_info_tackles_by_player_from_data():
 
 def test_get_info_dribbles_by_player_from_data():
     for_dataframe = {
-        "dribbles_attempts": [np.nan, 5, 4, np.nan, 3, 5, 1, 3, np.nan],
-        "dribbles_success": [None, None, None, None, None, None, None, None, None],
-        "dribbles_past": [np.nan, 1, np.nan, np.nan, 1, 1, 3, np.nan, np.nan],
+        "dribbles_attempts": [np.nan, 3, 1, np.nan, 1, 1, 6, 3, np.nan],
+        "dribbles_success": [np.nan, 2, 1, np.nan, np.nan, 1, 6, 1, np.nan],
+        "dribbles_past": [np.nan, 2, 1, np.nan, np.nan, np.nan, 2, 3, np.nan],
     }
-    get_info_dribbles_by_player_from_data()
+    expected = pd.DataFrame(for_dataframe)
+    obtained = get_info_dribbles_by_player_from_data(data)
+    assert_frame_equal(expected, obtained)
