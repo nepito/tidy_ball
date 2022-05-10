@@ -122,7 +122,7 @@ def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) 
     return info_tackles_of_players.rename(columns=new_names)
 
 
-def get_info_dribles_by_player_from_data():
+def get_info_dribbles_by_player_from_data():
     pass
 
 
