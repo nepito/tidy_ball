@@ -111,4 +111,9 @@ def test_get_info_tackles_by_player_from_data():
 
 
 def test_get_info_dribles_by_player_from_data():
+    for_dataframe = {
+        "dribbles_attempts": [np.nan, 5, 4, np.nan, 3, 5, 1, 3, np.nan],
+        "dribbles_success": [None, None, None, None, None, None, None, None, None],
+        "dribbles_past": [np.nan, 1, np.nan, np.nan, 1, 1, 3, np.nan, np.nan],
+    }
     get_info_dribles_by_player_from_data()
