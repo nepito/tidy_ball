@@ -157,7 +157,7 @@ def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) 
     info = SET_OF_INFO[set_of_info]
     for_dataframe = [info(**player["statistics"][0][set_of_info]).dict() for player in players]
     info_tackles_of_players = pd.DataFrame(for_dataframe)
-    return info_tackles_of_players.rename(columns=new_names)
+    return info_tackles_of_players.rename(columns=NEW_NAMES[set_of_info])
 
 
 SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal, "dribbles": Dribbles}
