@@ -122,12 +122,6 @@ def _get_info_by_player_from_data(data: dict, set_of_info: str) -> pd.DataFrame:
 
 SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal, "dribbles": Dribbles}
 
-NEW_NAMES = {
-    "dribbles": DRIBBLES_NEW_NAMES,
-    "tackles": TACKLES_NEW_NAMES,
-    "passes": PASSES_NEW_NAMES,
-    "goals": GOALS_NEW_NAMES,
-}
 PASSES_NEW_NAMES = {
     "total": "passes_total",
     "key": "passes_key",
@@ -148,4 +142,10 @@ DRIBBLES_NEW_NAMES = {
     "attempts": "dribbles_attempts",
     "success": "dribbles_success",
     "past": "dribbles_past",
+}
+NEW_NAMES = {
+    "dribbles": DRIBBLES_NEW_NAMES,
+    "tackles": TACKLES_NEW_NAMES,
+    "passes": PASSES_NEW_NAMES,
+    "goals": GOALS_NEW_NAMES,
 }
