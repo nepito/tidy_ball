@@ -134,7 +134,7 @@ DRIBBLES_NEW_NAMES = {
     "past": "dribbles_past",
 }
 
-NEW_NAMES = {"dribbles": DRIBBLES_NEW_NAMES, "tackles": TACKLES_NEW_NAMES}
+NEW_NAMES = {"dribbles": DRIBBLES_NEW_NAMES, "tackles": TACKLES_NEW_NAMES, "passes": PASSES_NEW_NAMES}
 
 
 def get_info_dribbles_by_player_from_data(data: dict):
