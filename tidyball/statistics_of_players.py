@@ -85,31 +85,6 @@ def get_info_game_by_player_from_data(data: dict) -> pd.DataFrame:
     return info_game_of_players
 
 
-GOALS_NEW_NAMES = {
-    "total": "goal_total",
-    "conceded": "goal_conceded",
-    "assists": "goal_assists",
-    "saves": "goal_saves",
-}
-
-
-def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
-    set_of_info = "goals"
-    return _get_info_by_player_from_data(data, set_of_info)
-
-
-PASSES_NEW_NAMES = {
-    "total": "passes_total",
-    "key": "passes_key",
-    "accuracy": "passes_accuracy",
-}
-
-
-def get_info_passes_by_player_from_data(data: dict) -> pd.DataFrame:
-    set_of_info = "passes"
-    return _get_info_by_player_from_data(data, set_of_info)
-
-
 def get_players(data: dict) -> list:
     home_players = data["response"][0]["players"]
     away_players = data["response"][1]["players"]
@@ -117,30 +92,19 @@ def get_players(data: dict) -> list:
     return players
 
 
-TACKLES_NEW_NAMES = {
-    "total": "tackles_total",
-    "blocks": "tackles_blocks",
-    "interceptions": "tackles_interceptions",
-}
+def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
+    set_of_info = "goals"
+    return _get_info_by_player_from_data(data, set_of_info)
+
+
+def get_info_passes_by_player_from_data(data: dict) -> pd.DataFrame:
+    set_of_info = "passes"
+    return _get_info_by_player_from_data(data, set_of_info)
 
 
 def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
     set_of_info = "tackles"
     return _get_info_by_player_from_data(data, set_of_info)
-
-
-DRIBBLES_NEW_NAMES = {
-    "attempts": "dribbles_attempts",
-    "success": "dribbles_success",
-    "past": "dribbles_past",
-}
-
-NEW_NAMES = {
-    "dribbles": DRIBBLES_NEW_NAMES,
-    "tackles": TACKLES_NEW_NAMES,
-    "passes": PASSES_NEW_NAMES,
-    "goals": GOALS_NEW_NAMES,
-}
 
 
 def get_info_dribbles_by_player_from_data(data: dict):
@@ -157,3 +121,31 @@ def _get_info_by_player_from_data(data: dict, set_of_info: str) -> pd.DataFrame:
 
 
 SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal, "dribbles": Dribbles}
+
+NEW_NAMES = {
+    "dribbles": DRIBBLES_NEW_NAMES,
+    "tackles": TACKLES_NEW_NAMES,
+    "passes": PASSES_NEW_NAMES,
+    "goals": GOALS_NEW_NAMES,
+}
+PASSES_NEW_NAMES = {
+    "total": "passes_total",
+    "key": "passes_key",
+    "accuracy": "passes_accuracy",
+}
+GOALS_NEW_NAMES = {
+    "total": "goal_total",
+    "conceded": "goal_conceded",
+    "assists": "goal_assists",
+    "saves": "goal_saves",
+}
+TACKLES_NEW_NAMES = {
+    "total": "tackles_total",
+    "blocks": "tackles_blocks",
+    "interceptions": "tackles_interceptions",
+}
+DRIBBLES_NEW_NAMES = {
+    "attempts": "dribbles_attempts",
+    "success": "dribbles_success",
+    "past": "dribbles_past",
+}
