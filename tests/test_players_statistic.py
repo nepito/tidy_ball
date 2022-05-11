@@ -7,6 +7,7 @@ from tidyball import (
     get_players_statistic_from_match,
     get_id_team_from_response,
     get_id_players_from_data,
+    get_info_dribbles_by_player_from_data,
     get_info_game_by_player_from_data,
     get_info_goal_by_player_from_data,
     get_info_passes_by_player_from_data,
@@ -109,5 +110,12 @@ def test_get_info_tackles_by_player_from_data():
     assert_frame_equal(expected, obtained)
 
 
-def test_get_info_dribles_by_player_from_data():
-    pass
+def test_get_info_dribbles_by_player_from_data():
+    for_dataframe = {
+        "dribbles_attempts": [np.nan, 3, 1, np.nan, 1, 1, 6, 3, np.nan],
+        "dribbles_success": [np.nan, 2, 1, np.nan, np.nan, 1, 6, 1, np.nan],
+        "dribbles_past": [np.nan, 2, 1, np.nan, np.nan, np.nan, 2, 3, np.nan],
+    }
+    expected = pd.DataFrame(for_dataframe)
+    obtained = get_info_dribbles_by_player_from_data(data)
+    assert_frame_equal(expected, obtained)

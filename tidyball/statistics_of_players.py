@@ -36,6 +36,12 @@ class Tackles(BaseModel):
     interceptions: Optional[int]
 
 
+class Dribbles(BaseModel):
+    attempts: Optional[int]
+    success: Optional[int]
+    past: Optional[int]
+
+
 class MatchTeam(BaseModel):
     match: str
     team: str
@@ -114,6 +120,15 @@ def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
     return get_info_by_player_from_data(data, "tackles", new_names)
 
 
+def get_info_dribbles_by_player_from_data(data: dict):
+    new_names = {
+        "attempts": "dribbles_attempts",
+        "success": "dribbles_success",
+        "past": "dribbles_past",
+    }
+    return get_info_by_player_from_data(data, "dribbles", new_names)
+
+
 def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) -> pd.DataFrame:
     players = get_players(data)
     info = SET_OF_INFO[set_of_info]
@@ -122,4 +137,4 @@ def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) 
     return info_tackles_of_players.rename(columns=new_names)
 
 
-SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal}
+SET_OF_INFO = {"tackles": Tackles, "passes": Passes, "goals": Goal, "dribbles": Dribbles}
