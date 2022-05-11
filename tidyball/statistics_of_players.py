@@ -95,7 +95,7 @@ GOAL_NEW_NAMES = {
 
 def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
     set_of_info = "goals"
-    new_names = GOAL_NEW_NAMES
+    new_names = NEW_NAMES[set_of_info]
     return get_info_by_player_from_data(data, set_of_info, new_names)
 
 
