@@ -111,12 +111,15 @@ def get_players(data: dict) -> list:
     return players
 
 
+TACKLES_NEW_NAMES = {
+    "total": "tackles_total",
+    "blocks": "tackles_blocks",
+    "interceptions": "tackles_interceptions",
+}
+
+
 def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
-    new_names = {
-        "total": "tackles_total",
-        "blocks": "tackles_blocks",
-        "interceptions": "tackles_interceptions",
-    }
+    new_names = TACKLES_NEW_NAMES
     return get_info_by_player_from_data(data, "tackles", new_names)
 
 
@@ -127,6 +130,7 @@ DRIBBLES_NEW_NAMES = {
 }
 
 NEW_NAMES = {"dribbles": DRIBBLES_NEW_NAMES}
+
 
 def get_info_dribbles_by_player_from_data(data: dict):
     set_of_info = "dribbles"
