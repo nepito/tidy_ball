@@ -85,7 +85,7 @@ def get_info_game_by_player_from_data(data: dict) -> pd.DataFrame:
     return info_game_of_players
 
 
-GOAL_NEW_NAMES = {
+GOALS_NEW_NAMES = {
     "total": "goal_total",
     "conceded": "goal_conceded",
     "assists": "goal_assists",
@@ -142,6 +142,7 @@ NEW_NAMES = {
     "dribbles": DRIBBLES_NEW_NAMES,
     "tackles": TACKLES_NEW_NAMES,
     "passes": PASSES_NEW_NAMES,
+    "goals": GOALS_NEW_NAMES,
 }
 
 
