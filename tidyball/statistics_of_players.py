@@ -95,12 +95,15 @@ def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
     return get_info_by_player_from_data(data, "goals", new_names)
 
 
+PASSES_NEW_NAMES = {
+    "total": "passes_total",
+    "key": "passes_key",
+    "accuracy": "passes_accuracy",
+}
+
+
 def get_info_passes_by_player_from_data(data: dict) -> pd.DataFrame:
-    new_names = {
-        "total": "passes_total",
-        "key": "passes_key",
-        "accuracy": "passes_accuracy",
-    }
+    new_names = PASSES_NEW_NAMES
     return get_info_by_player_from_data(data, "passes", new_names)
 
 
