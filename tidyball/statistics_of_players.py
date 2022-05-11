@@ -120,12 +120,15 @@ def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
     return get_info_by_player_from_data(data, "tackles", new_names)
 
 
+DRIBBLES_NEW_NAMES = {
+    "attempts": "dribbles_attempts",
+    "success": "dribbles_success",
+    "past": "dribbles_past",
+}
+
+
 def get_info_dribbles_by_player_from_data(data: dict):
-    new_names = {
-        "attempts": "dribbles_attempts",
-        "success": "dribbles_success",
-        "past": "dribbles_past",
-    }
+    new_names = DRIBBLES_NEW_NAMES
     return get_info_by_player_from_data(data, "dribbles", new_names)
 
 
