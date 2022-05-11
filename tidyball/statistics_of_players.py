@@ -126,10 +126,12 @@ DRIBBLES_NEW_NAMES = {
     "past": "dribbles_past",
 }
 
+NEW_NAMES = {"dribbles": DRIBBLES_NEW_NAMES}
 
 def get_info_dribbles_by_player_from_data(data: dict):
-    new_names = DRIBBLES_NEW_NAMES
-    return get_info_by_player_from_data(data, "dribbles", new_names)
+    set_of_info = "dribbles"
+    new_names = NEW_NAMES[set_of_info]
+    return get_info_by_player_from_data(data, set_of_info, new_names)
 
 
 def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) -> pd.DataFrame:
