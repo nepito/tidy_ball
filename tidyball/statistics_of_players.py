@@ -95,8 +95,7 @@ GOALS_NEW_NAMES = {
 
 def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
     set_of_info = "goals"
-    new_names = NEW_NAMES[set_of_info]
-    return get_info_by_player_from_data(data, set_of_info, new_names)
+    return _get_info_by_player_from_data(data, set_of_info)
 
 
 PASSES_NEW_NAMES = {
@@ -108,8 +107,7 @@ PASSES_NEW_NAMES = {
 
 def get_info_passes_by_player_from_data(data: dict) -> pd.DataFrame:
     set_of_info = "passes"
-    new_names = NEW_NAMES[set_of_info]
-    return get_info_by_player_from_data(data, set_of_info, new_names)
+    return _get_info_by_player_from_data(data, set_of_info)
 
 
 def get_players(data: dict) -> list:
@@ -128,8 +126,7 @@ TACKLES_NEW_NAMES = {
 
 def get_info_tackles_by_player_from_data(data: dict) -> pd.DataFrame:
     set_of_info = "tackles"
-    new_names = NEW_NAMES[set_of_info]
-    return get_info_by_player_from_data(data, set_of_info, new_names)
+    return _get_info_by_player_from_data(data, set_of_info)
 
 
 DRIBBLES_NEW_NAMES = {
@@ -150,13 +147,6 @@ def get_info_dribbles_by_player_from_data(data: dict):
     set_of_info = "dribbles"
     return _get_info_by_player_from_data(data, set_of_info)
 
-
-def get_info_by_player_from_data(data: dict, set_of_info: str, new_names: dict) -> pd.DataFrame:
-    players = get_players(data)
-    info = SET_OF_INFO[set_of_info]
-    for_dataframe = [info(**player["statistics"][0][set_of_info]).dict() for player in players]
-    info_tackles_of_players = pd.DataFrame(for_dataframe)
-    return info_tackles_of_players.rename(columns=NEW_NAMES[set_of_info])
 
 def _get_info_by_player_from_data(data: dict, set_of_info: str) -> pd.DataFrame:
     players = get_players(data)
