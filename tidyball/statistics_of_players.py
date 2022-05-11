@@ -85,13 +85,16 @@ def get_info_game_by_player_from_data(data: dict) -> pd.DataFrame:
     return info_game_of_players
 
 
+GOAL_NEW_NAMES = {
+    "total": "goal_total",
+    "conceded": "goal_conceded",
+    "assists": "goal_assists",
+    "saves": "goal_saves",
+}
+
+
 def get_info_goal_by_player_from_data(data: dict) -> pd.DataFrame:
-    new_names = {
-        "total": "goal_total",
-        "conceded": "goal_conceded",
-        "assists": "goal_assists",
-        "saves": "goal_saves",
-    }
+    new_names = GOAL_NEW_NAMES
     return get_info_by_player_from_data(data, "goals", new_names)
 
 
