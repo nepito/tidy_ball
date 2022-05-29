@@ -143,6 +143,6 @@ pre_dribbles = {
 
 
 def test_get_dribbles_and_passes_statistic_from_match():
-    obtained = get_dribbles_and_passes_statistic_from_match()
+    obtained = get_dribbles_and_passes_statistic_from_match(data)
     expected = pd.DataFrame(pre_dribbles)
     assert_frame_equal(expected, obtained)

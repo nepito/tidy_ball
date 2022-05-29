@@ -159,25 +159,7 @@ NEW_NAMES = {
 }
 
 
-PRE_DRIBBLES = {
-    "match": [
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-        "718522",
-    ],
-    "team": [106, 106, 106, 82, 82, 82, 82, 82, 82],
-    "player": [36878, 99, 22164, 2801, 8478, 21585, 21443, 879, 1918],
-    "minutes": [90, 90, 90, 90, 77, 90, 90, 89, 45],
-    "position": ["G", "D", "D", "G", "D", "M", "M", "M", "F"],
-    "number": [40, 18, 23, 1, 2, 6, 11, 10, 9],
-}
-
-
-def get_dribbles_and_passes_statistic_from_match():
-    return pd.DataFrame(PRE_DRIBBLES)
+def get_dribbles_and_passes_statistic_from_match(league_file):
+    output = _get_match_team_player_from_dictionary_league(league_file)
+    players = get_info_game_by_player_from_data(league_file)
+    return pd.concat([output, players], axis=1)
