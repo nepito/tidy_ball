@@ -164,4 +164,5 @@ def get_dribbles_and_passes_statistic_from_match(league_file):
     players = get_info_game_by_player_from_data(league_file)
     tackles = get_info_tackles_by_player_from_data(league_file)
     dribbles = get_info_dribbles_by_player_from_data(league_file)
-    return pd.concat([output, players, tackles, dribbles], axis=1)
+    values_columns = [output, players, tackles, dribbles]
+    return pd.concat(values_columns, axis=1)
