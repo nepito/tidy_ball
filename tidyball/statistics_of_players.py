@@ -168,5 +168,5 @@ NEW_NAMES = {
 
 
 def get_goals_passes_tackles_and_dribbles_statistic_from_match(league_file):
-    column_names = ["tackles", "dribbles"]
+    column_names = ["goals", "passes", "tackles", "dribbles"]
     return _get_statistic_players_from_match(league_file, column_names)
