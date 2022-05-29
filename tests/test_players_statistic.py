@@ -148,5 +148,5 @@ pre_expected = {
 }
 
 
-def test_get_passes_players_statistic_from_match():
+def test_get_dribbles_and_passes_statistic_from_match():
     pass
