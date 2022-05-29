@@ -162,7 +162,10 @@ NEW_NAMES = {
 def get_dribbles_and_passes_statistic_from_match(league_file):
     output = _get_match_team_player_from_dictionary_league(league_file)
     players = get_info_game_by_player_from_data(league_file)
-    tackles = get_info_tackles_by_player_from_data(league_file)
-    dribbles = get_info_dribbles_by_player_from_data(league_file)
-    values_columns = [output, players, tackles, dribbles]
+    column_names = ["tackles", "dribbles"]
+    values_columns = [
+        output,
+        players,
+        *[_get_info_by_player_from_data(league_file, column_name) for column_name in column_names],
+    ]
     return pd.concat(values_columns, axis=1)
