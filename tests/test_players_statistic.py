@@ -4,7 +4,7 @@ from pandas._testing import assert_frame_equal
 
 from tidyball import (
     read_json,
-    get_dribbles_and_passes_statistic_from_match,
+    get_goals_passes_tackles_and_dribbles_statistic_from_match,
     get_players_statistic_from_match,
     get_id_team_from_response,
     get_id_players_from_data,
@@ -148,7 +148,7 @@ pre_dribbles = {
 }
 
 
-def test_get_dribbles_and_passes_statistic_from_match():
-    obtained = get_dribbles_and_passes_statistic_from_match(data)
+def test_get_goals_passes_tackles_and_dribbles_statistic_from_match():
+    obtained = get_goals_passes_tackles_and_dribbles_statistic_from_match(data)
     expected = pd.DataFrame(pre_dribbles)
     assert_frame_equal(expected, obtained)
