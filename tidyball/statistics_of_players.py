@@ -50,9 +50,13 @@ class MatchTeam(BaseModel):
 def get_players_statistic_from_match(league_file: dict):
     output = _get_match_team_player_from_dictionary_league(league_file)
     players = get_info_game_by_player_from_data(league_file)
-    goals = get_info_goal_by_player_from_data(league_file)
-    passes = get_info_passes_by_player_from_data(league_file)
-    return pd.concat([output, players, goals, passes], axis=1)
+    column_names = ["goals", "passes"]
+    values_columns = [
+        output,
+        players,
+        *[_get_info_by_player_from_data(league_file, column_name) for column_name in column_names],
+    ]
+    return pd.concat(values_columns, axis=1)
 
 
 def _get_match_team_player_from_dictionary_league(league_file: dict):
