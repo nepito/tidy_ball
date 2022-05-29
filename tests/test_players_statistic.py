@@ -4,6 +4,7 @@ from pandas._testing import assert_frame_equal
 
 from tidyball import (
     read_json,
+    get_dribbles_and_passes_statistic_from_match,
     get_players_statistic_from_match,
     get_id_team_from_response,
     get_id_players_from_data,
@@ -121,7 +122,7 @@ def test_get_info_dribbles_by_player_from_data():
     assert_frame_equal(expected, obtained)
 
 
-pre_expected = {
+pre_dribbles = {
     "match": [
         "718522",
         "718522",
@@ -138,15 +139,10 @@ pre_expected = {
     "minutes": [90, 90, 90, 90, 77, 90, 90, 89, 45],
     "position": ["G", "D", "D", "G", "D", "M", "M", "M", "F"],
     "number": [40, 18, 23, 1, 2, 6, 11, 10, 9],
-    "goal_total": [np.nan, np.nan, np.nan, np.nan, np.nan, 1, np.nan, 1, 1],
-    "goal_conceded": [4, 0, 0, 0, 0, 0, 0, 0, 0],
-    "goal_assists": [np.nan, np.nan, np.nan, np.nan, 1, np.nan, 1, np.nan, 1],
-    "goal_saves": [np.nan, np.nan, np.nan, 6, np.nan, np.nan, np.nan, np.nan, np.nan],
-    "passes_total": [20, 39, 40, 34, 29, 32, 63, 24, 13],
-    "passes_key": [1, np.nan, np.nan, np.nan, 1, np.nan, 2, 1, 2],
-    "passes_accuracy": [16, 32, 37, 29, 21, 24, 45, 21, 13],
 }
 
 
 def test_get_dribbles_and_passes_statistic_from_match():
-    pass
+    obtained = get_dribbles_and_passes_statistic_from_match()
+    expected = pd.DataFrame(pre_dribbles)
+    assert_frame_equal(expected, obtained)
