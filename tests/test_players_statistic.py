@@ -139,6 +139,9 @@ pre_dribbles = {
     "minutes": [90, 90, 90, 90, 77, 90, 90, 89, 45],
     "position": ["G", "D", "D", "G", "D", "M", "M", "M", "F"],
     "number": [40, 18, 23, 1, 2, 6, 11, 10, 9],
+    "tackles_total": [np.nan, 5, 4, np.nan, 3, 5, 1, 3, np.nan],
+    "tackles_blocks": [None, None, None, None, None, None, None, None, None],
+    "tackles_interceptions": [np.nan, 1, np.nan, np.nan, 1, 1, 3, np.nan, np.nan],
 }
 
 
