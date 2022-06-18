@@ -39,4 +39,6 @@ def _assert_appearences_on_season_for(player, expected_appearences):
 
 
 def test_get_passes_on_season_for_player():
-    get_passes_on_season_for_player()
+    expected_passes = {"total": 722, "key": 41, "accuracy": 13}
+    obtained_passes = get_passes_on_season_for_player()
+    assert expected_passes == obtained_passes
