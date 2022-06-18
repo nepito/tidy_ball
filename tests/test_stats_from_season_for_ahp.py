@@ -1,4 +1,8 @@
-from tidyball import read_json, get_appearences_on_season_for_player
+from tidyball import (
+    read_json,
+    get_appearences_on_season_for_player,
+    get_passes_on_season_for_player,
+)
 
 data_to_test = "tests/data/data_file_16482_2021.json"
 aguirre = read_json(data_to_test)
@@ -32,3 +36,7 @@ def test_get_appearences_on_season_for_player():
 def _assert_appearences_on_season_for(player, expected_appearences):
     obtained_appearences = get_appearences_on_season_for_player(player)
     assert expected_appearences == obtained_appearences
+
+
+def test_get_passes_on_season_for_player():
+    get_passes_on_season_for_player()
