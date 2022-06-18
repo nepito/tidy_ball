@@ -16,7 +16,7 @@ def test_get_appearences_on_season_for_player():
         "rating": "7.165625",
         "captain": False,
     }
-    obtained_appearences = get_appearences_on_season_for_player()
+    obtained_appearences = get_appearences_on_season_for_player(aguirre)
     assert expected_appearences == obtained_appearences
     berterame_appearences = {
         "appearences": 37,
@@ -27,5 +27,5 @@ def test_get_appearences_on_season_for_player():
         "rating": "7.029729",
         "captain": False,
     }
-    obtained_appearences = get_appearences_on_season_for_player()
+    obtained_appearences = get_appearences_on_season_for_player(berterame)
     assert berterame_appearences == obtained_appearences
