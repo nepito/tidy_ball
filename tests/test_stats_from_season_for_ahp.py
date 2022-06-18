@@ -28,7 +28,7 @@ def test_get_appearences_on_season_for_player():
     }
     _assert_appearences_on_season_for(berterame, berterame_appearences)
 
+
 def _assert_appearences_on_season_for(player, expected_appearences):
     obtained_appearences = get_appearences_on_season_for_player(player)
     assert expected_appearences == obtained_appearences
-    
