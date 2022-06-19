@@ -51,3 +51,9 @@ def get_table_of_goals_players(players):
 def get_table_of_games_players(players):
     games = [_get_metrics_on_season_for_player(player, "games") for player in players]
     return pd.DataFrame(games)
+
+
+def get_table_of_passes_players():
+    passes = {"total": [446, 722], "key": [25, 41], "accuracy": [9, 13]}
+    expected_table = pd.DataFrame(passes)
+    return expected_table
