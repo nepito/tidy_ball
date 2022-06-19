@@ -5,6 +5,7 @@ from tidyball import (
     get_fouls_on_season_for_player,
     get_goals_on_season_for_player,
     get_passes_on_season_for_player,
+    get_penalties_on_season_for_player,
     get_shots_on_season_for_player,
     get_tackles_on_season_for_player,
 )
@@ -113,3 +114,9 @@ def test_get_fouls_on_season_for_player():
 def _assert_fouls_on_season_for_player(player, expected_fouls):
     obtained_fouls = get_fouls_on_season_for_player(player)
     assert expected_fouls == obtained_fouls
+
+
+def test_get_penalties_on_season_for_player():
+    aguirre_penalties = {"won": None, "commited": None, "scored": 1, "missed": 0, "saved": None}
+    expected_penalties = get_penalties_on_season_for_player()
+    assert aguirre_penalties == expected_penalties
