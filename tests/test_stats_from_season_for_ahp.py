@@ -85,9 +85,9 @@ def test_get_shots_on_season_for_player():
 
 
 def test_get_tackles_on_season_for_player():
-    aguirre_tackles = {"total": 25, "blocks": 4, "interceptions": 18}
-    obtained_tackles = get_tackles_on_season_for_player()
-    assert aguirre_tackles == obtained_tackles
-    berterame_tackles = {"total": 20, "blocks": 1, "interceptions": 3}
-    obtained_tackles = get_tackles_on_season_for_player()
+    berterame_tackles = {"total": 25, "blocks": 4, "interceptions": 18}
+    obtained_tackles = get_tackles_on_season_for_player(berterame)
     assert berterame_tackles == obtained_tackles
+    aguirre_tackles = {"total": 20, "blocks": 1, "interceptions": 3}
+    obtained_tackles = get_tackles_on_season_for_player(aguirre)
+    assert aguirre_tackles == obtained_tackles
