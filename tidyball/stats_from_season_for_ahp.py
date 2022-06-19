@@ -1,4 +1,6 @@
 import pandas as pd
+from tidyball import NEW_NAMES
+
 
 def get_appearences_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "games")
@@ -41,7 +43,6 @@ def get_penalties_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "penalty")
 
 
-def get_table_of_goals_players():
-    return pd.DataFrame(
-        {"goals_total": [17, 12], "conceded": [0, 0], "assists": [5, 4], "saves": [None, None]}
-    )
+def get_table_of_goals_players(players):
+    goals = [get_goals_on_season_for_player(player) for player in players]
+    return pd.DataFrame(goals).rename(columns=NEW_NAMES["goals"])
