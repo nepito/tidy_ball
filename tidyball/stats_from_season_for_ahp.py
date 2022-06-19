@@ -1,7 +1,12 @@
 def get_appearences_on_season_for_player(player):
-    return player["response"][0]["statistics"][0]["games"]
+    stats_player = _get_stats_of_player(player)
+    return stats_player["games"]
 
 
 def get_passes_on_season_for_player(player):
-    expected_passes = player["response"][0]["statistics"][0]["passes"]
-    return expected_passes
+    stats_player = _get_stats_of_player(player)
+    passes = stats_player["passes"]
+    return passes
+
+def _get_stats_of_player(player):
+    return player["response"][0]["statistics"][0]
