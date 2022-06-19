@@ -31,5 +31,5 @@ def get_dribbles_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "dribbles")
 
 
-def get_fouls_on_season_for_player():
-    return {"drawn": 28, "committed": 67}
+def get_fouls_on_season_for_player(player):
+    return _get_metrics_on_season_for_player(player, "fouls")
