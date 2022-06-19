@@ -6,3 +6,4 @@ is chage from format json to csv.
 __version__ = "1.1.0"
 from .io import *  # noqa
 from .statistics_of_players import *  # noqa
+from .stats_from_season_for_ahp import *  # noqa
