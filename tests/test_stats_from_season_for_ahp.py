@@ -58,13 +58,16 @@ def test_get_goals_on_season_for_player():
         "assists": 4,
         "saves": None,
     }
-    obtained_goals = get_goals_on_season_for_player(aguirre)
-    assert aguirre_goals == obtained_goals
+    _assert_goals_on_season_for(aguirre, aguirre_goals)
     berterame_goals = {
         "total": 17,
         "conceded": 0,
         "assists": 5,
         "saves": None,
     }
-    obtained_goals = get_goals_on_season_for_player(berterame)
-    assert berterame_goals == obtained_goals
+    _assert_goals_on_season_for(berterame, berterame_goals)
+
+
+def _assert_goals_on_season_for(player, expected_goals):
+    obtained_goals = get_goals_on_season_for_player(player)
+    assert expected_goals == obtained_goals
