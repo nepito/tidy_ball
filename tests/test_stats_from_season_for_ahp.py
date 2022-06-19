@@ -120,3 +120,6 @@ def test_get_penalties_on_season_for_player():
     aguirre_penalties = {"won": None, "commited": None, "scored": 1, "missed": 0, "saved": None}
     expected_penalties = get_penalties_on_season_for_player()
     assert aguirre_penalties == expected_penalties
+    berterame_penalties = {"won": None, "commited": None, "scored": 5, "missed": 2, "saved": None}
+    expected_penalties = get_penalties_on_season_for_player()
+    assert berterame_penalties == expected_penalties
