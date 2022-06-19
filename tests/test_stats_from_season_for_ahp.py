@@ -164,7 +164,7 @@ def test_get_table_of_games_players():
 
 
 def test_get_table_of_passes_players():
-    passes = {"total": [446, 722], "key": [25, 41], "accuracy": [9, 13]}
+    passes = {"passes_total": [446, 722], "passes_key": [25, 41], "passes_accuracy": [9, 13]}
     expected_table = pd.DataFrame(passes)
     players = [aguirre, berterame]
     passes_of_players = get_table_of_passes_players(players)
