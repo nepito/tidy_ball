@@ -9,6 +9,7 @@ from tidyball import (
     get_passes_on_season_for_player,
     get_penalties_on_season_for_player,
     get_shots_on_season_for_player,
+    get_table_of_games_players,
     get_table_of_goals_players,
     get_tackles_on_season_for_player,
 )
@@ -143,3 +144,18 @@ def test_get_table_of_goals_players():
     players = [berterame, aguirre]
     goals_players = get_table_of_goals_players(players)
     assert_frame_equal(expected_table, goals_players)
+
+
+def test_get_table_of_games_players():
+    appearences = {
+        "appearences": [32, 37],
+        "lineups": [26, 37],
+        "minutes": [2257, 3219],
+        "number": [None, None],
+        "position": ["Attacker", "Attacker"],
+        "rating": ["7.165625", "7.029729"],
+        "captain": [False, False],
+    }
+    expected_table = pd.DataFrame(appearences)
+    games_of_players = get_table_of_games_players()
+    assert_frame_equal(expected_table, games_of_players)
