@@ -46,3 +46,17 @@ def get_penalties_on_season_for_player(player):
 def get_table_of_goals_players(players):
     goals = [get_goals_on_season_for_player(player) for player in players]
     return pd.DataFrame(goals).rename(columns=NEW_NAMES["goals"])
+
+
+def get_table_of_games_players():
+    appearences = {
+        "appearences": [32, 37],
+        "lineups": [26, 37],
+        "minutes": [2257, 3219],
+        "number": [None, None],
+        "position": ["Attacker", "Attacker"],
+        "rating": ["7.165625", "7.029729"],
+        "captain": [False, False],
+    }
+    expected_table = pd.DataFrame(appearences)
+    return expected_table
