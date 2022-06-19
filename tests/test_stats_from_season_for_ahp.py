@@ -2,6 +2,7 @@ from tidyball import (
     read_json,
     get_appearences_on_season_for_player,
     get_dribbles_on_season_for_player,
+    get_fouls_on_season_for_player,
     get_goals_on_season_for_player,
     get_passes_on_season_for_player,
     get_shots_on_season_for_player,
@@ -100,3 +101,9 @@ def test_get_dribbles_on_season_for_player():
 def _assert_dribbles_on_season_for(player, expected_dribbles):
     obtiained_dribles = get_dribbles_on_season_for_player(player)
     assert expected_dribbles == obtiained_dribles
+
+
+def test_get_fouls_on_season_for_player():
+    aguirre_fouls = {"drawn": 28, "committed": 67}
+    obtained_fouls = get_fouls_on_season_for_player()
+    assert aguirre_fouls == obtained_fouls
