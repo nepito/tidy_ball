@@ -55,5 +55,5 @@ def get_table_of_games_players(players):
 
 def get_table_of_passes_players(players):
     passes = [_get_metrics_on_season_for_player(player, "passes") for player in players]
-    expected_table = pd.DataFrame(passes)
+    expected_table = pd.DataFrame(passes).rename(columns=NEW_NAMES["passes"])
     return expected_table
