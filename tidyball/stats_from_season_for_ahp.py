@@ -14,4 +14,10 @@ def _get_stats_of_player(player):
 
 
 def get_goals_on_season_for_player():
-    pass
+    aguirre_goals = {
+        "total": 12,
+        "conceded": 0,
+        "assists": 4,
+        "saves": None,
+    }
+    return aguirre_goals
