@@ -157,5 +157,6 @@ def test_get_table_of_games_players():
         "captain": [False, False],
     }
     expected_table = pd.DataFrame(appearences)
-    games_of_players = get_table_of_games_players()
+    players = [berterame, aguirre]
+    games_of_players = get_table_of_games_players(players)
     assert_frame_equal(expected_table, games_of_players)
