@@ -78,3 +78,6 @@ def test_get_shots_on_season_for_player():
     aguirre_shots = {"total": 84, "on": 42}
     obtained_shots = get_shots_on_season_for_player()
     assert aguirre_shots == obtained_shots
+    berterame_shots = {"total": 94, "on": 45}
+    obtained_shots = get_shots_on_season_for_player()
+    assert berterame_shots == obtained_shots
