@@ -1,6 +1,7 @@
 from tidyball import (
     read_json,
     get_appearences_on_season_for_player,
+    get_goals_on_season_for_player,
     get_passes_on_season_for_player,
 )
 
@@ -48,3 +49,8 @@ def test_get_passes_on_season_for_player():
 def _assert_passes_on_season_for(player, expected_passes):
     aguirre_passes = get_passes_on_season_for_player(player)
     assert expected_passes == aguirre_passes
+
+
+def test_get_goals_on_season_for_player():
+    get_goals_on_season_for_player()
+    pass
