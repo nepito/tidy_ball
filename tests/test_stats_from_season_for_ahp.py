@@ -1,6 +1,7 @@
 from tidyball import (
     read_json,
     get_appearences_on_season_for_player,
+    get_dribbles_on_season_for_player,
     get_goals_on_season_for_player,
     get_passes_on_season_for_player,
     get_shots_on_season_for_player,
@@ -54,19 +55,9 @@ def _assert_passes_on_season_for(player, expected_passes):
 
 
 def test_get_goals_on_season_for_player():
-    aguirre_goals = {
-        "total": 12,
-        "conceded": 0,
-        "assists": 4,
-        "saves": None,
-    }
+    aguirre_goals = {"total": 12, "conceded": 0, "assists": 4, "saves": None}
     _assert_goals_on_season_for(aguirre, aguirre_goals)
-    berterame_goals = {
-        "total": 17,
-        "conceded": 0,
-        "assists": 5,
-        "saves": None,
-    }
+    berterame_goals = {"total": 17, "conceded": 0, "assists": 5, "saves": None}
     _assert_goals_on_season_for(berterame, berterame_goals)
 
 
@@ -97,3 +88,12 @@ def test_get_tackles_on_season_for_player():
 def _assert_tackles_on_season_for(player, expected):
     obtained_tackles = get_tackles_on_season_for_player(player)
     assert expected == obtained_tackles
+
+
+def test_get_dribbles_on_season_for_player():
+    aguirre_dribbles = {"attempts": 54, "success": 23, "past": None}
+    obtiained_dribles = get_dribbles_on_season_for_player(aguirre)
+    assert aguirre_dribbles == obtiained_dribles
+    berterame_dribbles = {"attempts": 79, "success": 32, "past": None}
+    obtiained_dribles = get_dribbles_on_season_for_player(berterame)
+    assert berterame_dribbles == obtiained_dribles
