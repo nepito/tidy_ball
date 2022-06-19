@@ -11,3 +11,7 @@ def get_passes_on_season_for_player(player):
 
 def _get_stats_of_player(player):
     return player["response"][0]["statistics"][0]
+
+
+def get_goals_on_season_for_player():
+    pass
