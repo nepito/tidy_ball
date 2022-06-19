@@ -17,3 +17,7 @@ def get_goals_on_season_for_player(player):
 def _get_metrics_on_season_for_player(player, metric):
     stats_player = _get_stats_of_player(player)
     return stats_player[metric]
+
+
+def get_shots_on_season_for_player():
+    return {"total": 84, "on": 42}
