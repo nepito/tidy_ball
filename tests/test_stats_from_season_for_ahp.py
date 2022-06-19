@@ -1,3 +1,5 @@
+import pandas as pd
+from pandas._testing import assert_frame_equal
 from tidyball import (
     read_json,
     get_appearences_on_season_for_player,
@@ -7,6 +9,7 @@ from tidyball import (
     get_passes_on_season_for_player,
     get_penalties_on_season_for_player,
     get_shots_on_season_for_player,
+    get_table_of_goals_players,
     get_tackles_on_season_for_player,
 )
 
@@ -126,3 +129,11 @@ def test_get_penalties_on_season_for_player():
 def _assert_penalties_on_season_for(player, expected_penalties):
     obtained_penalties = get_penalties_on_season_for_player(player)
     assert expected_penalties == obtained_penalties
+
+
+def test_get_table_of_goals_players():
+    expected_table = pd.DataFrame(
+        {"goals_total": [17, 12], "conceded": [0, 0], "assists": [5, 4], "saves": [None, None]}
+    )
+    goals_players = get_table_of_goals_players()
+    assert_frame_equal(expected_table, goals_players)
