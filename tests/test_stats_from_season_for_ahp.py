@@ -52,5 +52,11 @@ def _assert_passes_on_season_for(player, expected_passes):
 
 
 def test_get_goals_on_season_for_player():
-    get_goals_on_season_for_player()
-    pass
+    aguirre_goals = {
+        "total": 12,
+        "conceded": 0,
+        "assists": 4,
+        "saves": None,
+    }
+    obtained_goals = get_goals_on_season_for_player()
+    assert aguirre_goals == obtained_goals
