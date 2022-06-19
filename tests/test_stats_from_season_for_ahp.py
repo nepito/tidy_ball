@@ -105,5 +105,11 @@ def _assert_dribbles_on_season_for(player, expected_dribbles):
 
 def test_get_fouls_on_season_for_player():
     aguirre_fouls = {"drawn": 28, "committed": 67}
-    obtained_fouls = get_fouls_on_season_for_player()
-    assert aguirre_fouls == obtained_fouls
+    _assert_fouls_on_season_for_player(aguirre, aguirre_fouls)
+    berterame_fouls = {"drawn": 35, "committed": 45}
+    _assert_fouls_on_season_for_player(berterame, berterame_fouls)
+
+
+def _assert_fouls_on_season_for_player(player, expected_fouls):
+    obtained_fouls = get_fouls_on_season_for_player(player)
+    assert expected_fouls == obtained_fouls
