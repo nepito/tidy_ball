@@ -133,7 +133,12 @@ def _assert_penalties_on_season_for(player, expected_penalties):
 
 def test_get_table_of_goals_players():
     expected_table = pd.DataFrame(
-        {"goal_total": [17, 12], "goal_conceded": [0, 0], "goal_assists": [5, 4], "goal_saves": [None, None]}
+        {
+            "goal_total": [17, 12],
+            "goal_conceded": [0, 0],
+            "goal_assists": [5, 4],
+            "goal_saves": [None, None],
+        }
     )
     players = [berterame, aguirre]
     goals_players = get_table_of_goals_players(players)
