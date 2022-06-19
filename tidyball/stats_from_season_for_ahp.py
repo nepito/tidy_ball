@@ -21,3 +21,6 @@ def _get_metrics_on_season_for_player(player, metric):
 
 def get_shots_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "shots")
+
+def get_tackles_on_season_for_player():
+    return {"total": 20, "blocks": 1, "interceptions": 3}
