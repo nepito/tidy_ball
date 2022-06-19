@@ -135,5 +135,6 @@ def test_get_table_of_goals_players():
     expected_table = pd.DataFrame(
         {"goals_total": [17, 12], "conceded": [0, 0], "assists": [5, 4], "saves": [None, None]}
     )
-    goals_players = get_table_of_goals_players()
+    players = [aguirre, berterame]
+    goals_players = get_table_of_goals_players(players)
     assert_frame_equal(expected_table, goals_players)
