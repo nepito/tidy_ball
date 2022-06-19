@@ -149,13 +149,13 @@ def test_get_table_of_goals_players():
 
 def test_get_table_of_games_players():
     appearences = {
-        "appearences": [32, 37],
-        "lineups": [26, 37],
-        "minutes": [2257, 3219],
-        "number": [None, None],
-        "position": ["Attacker", "Attacker"],
-        "rating": ["7.165625", "7.029729"],
-        "captain": [False, False],
+        "player_appearences": [32, 37],
+        "player_lineups": [26, 37],
+        "player_minutes": [2257, 3219],
+        "player_number": [None, None],
+        "player_position": ["Attacker", "Attacker"],
+        "player_rating": ["7.165625", "7.029729"],
+        "is_captain": [False, False],
     }
     expected_table = pd.DataFrame(appearences)
     players = [aguirre, berterame]
