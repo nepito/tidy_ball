@@ -1,12 +1,9 @@
 def get_appearences_on_season_for_player(player):
-    stats_player = _get_stats_of_player(player)
-    return stats_player["games"]
+    return _get_metrics_on_season_for_player(player, "games")
 
 
 def get_passes_on_season_for_player(player):
-    stats_player = _get_stats_of_player(player)
-    passes = stats_player["passes"]
-    return passes
+    return _get_metrics_on_season_for_player(player, "passes")
 
 
 def _get_stats_of_player(player):
@@ -14,5 +11,9 @@ def _get_stats_of_player(player):
 
 
 def get_goals_on_season_for_player(player):
+    return _get_metrics_on_season_for_player(player, "goals")
+
+
+def _get_metrics_on_season_for_player(player, metric):
     stats_player = _get_stats_of_player(player)
-    return stats_player["goals"]
+    return stats_player[metric]
