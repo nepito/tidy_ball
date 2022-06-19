@@ -35,5 +35,5 @@ def get_fouls_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "fouls")
 
 
-def get_penalties_on_season_for_player():
-    return {"won": None, "commited": None, "scored": 1, "missed": 0, "saved": None}
+def get_penalties_on_season_for_player(player):
+    return _get_metrics_on_season_for_player(player, "penalty")
