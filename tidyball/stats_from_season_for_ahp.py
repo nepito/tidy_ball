@@ -44,7 +44,7 @@ def get_penalties_on_season_for_player(player):
 
 
 def get_table_of_goals_players(players):
-    goals = [get_goals_on_season_for_player(player) for player in players]
+    goals = [_get_metrics_on_season_for_player(player, "goals") for player in players]
     return pd.DataFrame(goals).rename(columns=NEW_NAMES["goals"])
 
 
