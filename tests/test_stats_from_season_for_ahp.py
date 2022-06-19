@@ -77,17 +77,23 @@ def _assert_goals_on_season_for(player, expected_goals):
 
 def test_get_shots_on_season_for_player():
     aguirre_shots = {"total": 84, "on": 42}
-    obtained_shots = get_shots_on_season_for_player(aguirre)
-    assert aguirre_shots == obtained_shots
+    _assert_shots_on_season_for(aguirre, aguirre_shots)
     berterame_shots = {"total": 94, "on": 45}
-    obtained_shots = get_shots_on_season_for_player(berterame)
-    assert berterame_shots == obtained_shots
+    _assert_shots_on_season_for(berterame, berterame_shots)
+
+
+def _assert_shots_on_season_for(player, expected_tackles):
+    obtained_shots = get_shots_on_season_for_player(player)
+    assert expected_tackles == obtained_shots
 
 
 def test_get_tackles_on_season_for_player():
     berterame_tackles = {"total": 25, "blocks": 4, "interceptions": 18}
-    obtained_tackles = get_tackles_on_season_for_player(berterame)
-    assert berterame_tackles == obtained_tackles
+    _assert_tackles_on_season_for(berterame, berterame_tackles)
     aguirre_tackles = {"total": 20, "blocks": 1, "interceptions": 3}
-    obtained_tackles = get_tackles_on_season_for_player(aguirre)
-    assert aguirre_tackles == obtained_tackles
+    _assert_tackles_on_season_for(aguirre, aguirre_tackles)
+
+
+def _assert_tackles_on_season_for(player, expected):
+    obtained_tackles = get_tackles_on_season_for_player(player)
+    assert expected == obtained_tackles
