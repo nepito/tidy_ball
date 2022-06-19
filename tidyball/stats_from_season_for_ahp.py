@@ -48,8 +48,7 @@ def get_table_of_goals_players(players):
 
 
 def get_table_of_games_players(players):
-    games = [_get_metrics_on_season_for_player(player, "games") for player in players]
-    return pd.DataFrame(games)
+    return _get_table_for_metric_of_players(players, "games")
 
 
 def get_table_of_passes_players(players):
