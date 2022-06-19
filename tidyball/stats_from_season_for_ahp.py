@@ -25,3 +25,7 @@ def get_shots_on_season_for_player(player):
 
 def get_tackles_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "tackles")
+
+
+def get_dribbles_on_season_for_player(player):
+    return _get_metrics_on_season_for_player(player, "dribbles")
