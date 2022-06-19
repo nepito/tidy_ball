@@ -13,11 +13,6 @@ def _get_stats_of_player(player):
     return player["response"][0]["statistics"][0]
 
 
-def get_goals_on_season_for_player():
-    aguirre_goals = {
-        "total": 12,
-        "conceded": 0,
-        "assists": 4,
-        "saves": None,
-    }
-    return aguirre_goals
+def get_goals_on_season_for_player(player):
+    stats_player = _get_stats_of_player(player)
+    return stats_player["goals"]

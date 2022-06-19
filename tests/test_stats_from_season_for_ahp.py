@@ -58,7 +58,7 @@ def test_get_goals_on_season_for_player():
         "assists": 4,
         "saves": None,
     }
-    obtained_goals = get_goals_on_season_for_player()
+    obtained_goals = get_goals_on_season_for_player(aguirre)
     assert aguirre_goals == obtained_goals
     berterame_goals = {
         "total": 17,
@@ -66,5 +66,5 @@ def test_get_goals_on_season_for_player():
         "assists": 5,
         "saves": None,
     }
-    obtained_goals = get_goals_on_season_for_player()
+    obtained_goals = get_goals_on_season_for_player(berterame)
     assert berterame_goals == obtained_goals
