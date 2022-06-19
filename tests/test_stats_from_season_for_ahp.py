@@ -3,6 +3,7 @@ from tidyball import (
     get_appearences_on_season_for_player,
     get_goals_on_season_for_player,
     get_passes_on_season_for_player,
+    get_shots_on_season_for_player,
 )
 
 data_to_test = "tests/data/data_file_16482_2021.json"
@@ -71,3 +72,9 @@ def test_get_goals_on_season_for_player():
 def _assert_goals_on_season_for(player, expected_goals):
     obtained_goals = get_goals_on_season_for_player(player)
     assert expected_goals == obtained_goals
+
+
+def test_get_shots_on_season_for_player():
+    aguirre_shots = {"total": 84, "on": 42}
+    obtained_shots = get_shots_on_season_for_player()
+    assert aguirre_shots == obtained_shots
