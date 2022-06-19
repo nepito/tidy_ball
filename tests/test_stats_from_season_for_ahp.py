@@ -92,8 +92,11 @@ def _assert_tackles_on_season_for(player, expected):
 
 def test_get_dribbles_on_season_for_player():
     aguirre_dribbles = {"attempts": 54, "success": 23, "past": None}
-    obtiained_dribles = get_dribbles_on_season_for_player(aguirre)
-    assert aguirre_dribbles == obtiained_dribles
+    _assert_dribbles_on_season_for(aguirre, aguirre_dribbles)
     berterame_dribbles = {"attempts": 79, "success": 32, "past": None}
-    obtiained_dribles = get_dribbles_on_season_for_player(berterame)
-    assert berterame_dribbles == obtiained_dribles
+    _assert_dribbles_on_season_for(berterame, berterame_dribbles)
+
+
+def _assert_dribbles_on_season_for(player, expected_dribbles):
+    obtiained_dribles = get_dribbles_on_season_for_player(player)
+    assert expected_dribbles == obtiained_dribles
