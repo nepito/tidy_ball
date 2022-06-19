@@ -44,6 +44,7 @@ def test_get_passes_on_season_for_player():
     aguirre_passes = {"total": 446, "key": 25, "accuracy": 9}
     _assert_passes_on_season_for(aguirre, aguirre_passes)
 
+
 def _assert_passes_on_season_for(player, expected_passes):
     aguirre_passes = get_passes_on_season_for_player(player)
     assert expected_passes == aguirre_passes
