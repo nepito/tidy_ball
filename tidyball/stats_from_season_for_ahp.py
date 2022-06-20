@@ -1,3 +1,7 @@
+import pandas as pd
+from tidyball import NEW_NAMES
+
+
 def get_appearences_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "games")
 
@@ -37,3 +41,26 @@ def get_fouls_on_season_for_player(player):
 
 def get_penalties_on_season_for_player(player):
     return _get_metrics_on_season_for_player(player, "penalty")
+
+
+def get_table_of_goals_players(players):
+    return _get_table_for_metric_of_players(players, "goals")
+
+
+def get_table_of_games_players(players):
+    return _get_table_for_metric_of_players(players, "games")
+
+
+def get_table_of_passes_players(players):
+    return _get_table_for_metric_of_players(players, "passes")
+
+
+def _get_table_for_metric_of_players(players, metric):
+    player_metrics = [_get_metrics_on_season_for_player(player, metric) for player in players]
+    table = pd.DataFrame(player_metrics).rename(columns=NEW_NAMES[metric])
+    return table
+
+
+def get_table_for_all_metrics_of_players(players, metrics):
+    tables = [_get_table_for_metric_of_players(players, metric) for metric in metrics]
+    return pd.concat(tables, axis=1)

@@ -1,3 +1,5 @@
+import pandas as pd
+from pandas._testing import assert_frame_equal
 from tidyball import (
     read_json,
     get_appearences_on_season_for_player,
@@ -7,6 +9,10 @@ from tidyball import (
     get_passes_on_season_for_player,
     get_penalties_on_season_for_player,
     get_shots_on_season_for_player,
+    get_table_for_all_metrics_of_players,
+    get_table_of_games_players,
+    get_table_of_goals_players,
+    get_table_of_passes_players,
     get_tackles_on_season_for_player,
 )
 
@@ -126,3 +132,65 @@ def test_get_penalties_on_season_for_player():
 def _assert_penalties_on_season_for(player, expected_penalties):
     obtained_penalties = get_penalties_on_season_for_player(player)
     assert expected_penalties == obtained_penalties
+
+
+def test_get_table_of_goals_players():
+    expected_table = pd.DataFrame(
+        {
+            "goal_total": [17, 12],
+            "goal_conceded": [0, 0],
+            "goal_assists": [5, 4],
+            "goal_saves": [None, None],
+        }
+    )
+    players = [berterame, aguirre]
+    goals_players = get_table_of_goals_players(players)
+    assert_frame_equal(expected_table, goals_players)
+
+
+def test_get_table_of_games_players():
+    appearences = {
+        "player_appearences": [32, 37],
+        "player_lineups": [26, 37],
+        "player_minutes": [2257, 3219],
+        "player_number": [None, None],
+        "player_position": ["Attacker", "Attacker"],
+        "player_rating": ["7.165625", "7.029729"],
+        "is_captain": [False, False],
+    }
+    expected_table = pd.DataFrame(appearences)
+    players = [aguirre, berterame]
+    games_of_players = get_table_of_games_players(players)
+    assert_frame_equal(expected_table, games_of_players)
+
+
+def test_get_table_of_passes_players():
+    passes = {"passes_total": [446, 722], "passes_key": [25, 41], "passes_accuracy": [9, 13]}
+    expected_table = pd.DataFrame(passes)
+    players = [aguirre, berterame]
+    passes_of_players = get_table_of_passes_players(players)
+    assert_frame_equal(expected_table, passes_of_players)
+
+
+def test_get_table_for_all_metrics_of_players():
+    metrics = {
+        "player_appearences": [32, 37],
+        "player_lineups": [26, 37],
+        "player_minutes": [2257, 3219],
+        "player_number": [None, None],
+        "player_position": ["Attacker", "Attacker"],
+        "player_rating": ["7.165625", "7.029729"],
+        "is_captain": [False, False],
+        "goal_total": [12, 17],
+        "goal_conceded": [0, 0],
+        "goal_assists": [4, 5],
+        "goal_saves": [None, None],
+        "passes_total": [446, 722],
+        "passes_key": [25, 41],
+        "passes_accuracy": [9, 13],
+    }
+    expected_table = pd.DataFrame(metrics)
+    players = [aguirre, berterame]
+    metrics = ["games", "goals", "passes"]
+    matrics_of_players = get_table_for_all_metrics_of_players(players, metrics)
+    assert_frame_equal(expected_table, matrics_of_players)

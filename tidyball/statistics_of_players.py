@@ -162,11 +162,21 @@ DRIBBLES_NEW_NAMES = {
     "success": "dribbles_success",
     "past": "dribbles_past",
 }
+GAMES_NEW_NAMES = {
+    "appearences": "player_appearences",
+    "lineups": "player_lineups",
+    "minutes": "player_minutes",
+    "number": "player_number",
+    "position": "player_position",
+    "rating": "player_rating",
+    "captain": "is_captain",
+}
 NEW_NAMES = {
     "dribbles": DRIBBLES_NEW_NAMES,
     "tackles": TACKLES_NEW_NAMES,
     "passes": PASSES_NEW_NAMES,
     "goals": GOALS_NEW_NAMES,
+    "games": GAMES_NEW_NAMES,
 }
 
 
