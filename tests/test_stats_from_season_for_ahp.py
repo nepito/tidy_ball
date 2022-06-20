@@ -188,9 +188,12 @@ def test_get_table_for_all_metrics_of_players():
         "passes_total": [446, 722],
         "passes_key": [25, 41],
         "passes_accuracy": [9, 13],
+        "dribbles_attempts": [54, 79],
+        "dribbles_success": [23, 32],
+        "dribbles_past": [None, None],
     }
     expected_table = pd.DataFrame(metrics)
     players = [aguirre, berterame]
-    metrics = ["games", "goals", "passes"]
+    metrics = ["games", "goals", "passes", "dribbles"]
     matrics_of_players = get_table_for_all_metrics_of_players(players, metrics)
     assert_frame_equal(expected_table, matrics_of_players)
