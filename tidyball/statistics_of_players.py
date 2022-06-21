@@ -171,12 +171,14 @@ GAMES_NEW_NAMES = {
     "rating": "player_rating",
     "captain": "is_captain",
 }
+SHOTS_NEW_NAMES = {"total": "shots_total", "on": "shots_on"}
 NEW_NAMES = {
     "dribbles": DRIBBLES_NEW_NAMES,
     "tackles": TACKLES_NEW_NAMES,
     "passes": PASSES_NEW_NAMES,
     "goals": GOALS_NEW_NAMES,
     "games": GAMES_NEW_NAMES,
+    "shots": SHOTS_NEW_NAMES,
 }
 
 
