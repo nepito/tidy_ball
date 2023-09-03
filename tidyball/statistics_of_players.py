@@ -27,7 +27,7 @@ class Passes(BaseModel):
 class Games(BaseModel):
     minutes: Optional[int]
     position: str
-    number: int
+    number: Optional[int]
 
 
 class Tackles(BaseModel):
