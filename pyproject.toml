@@ -8,7 +8,7 @@ build-backend = "flit_core.buildapi"
 author = "Nepo Rojas"
 author-email = "nepo.rojas@gmail.com"
 description-file = "README.md"
-home-page = "https://gitlab.com/nepito/tiidy_ball"
+home-page = "https://github.com/niesfutbol/tidy_ball"
 module = "tidyball"
 requires = [
     "pandas",
